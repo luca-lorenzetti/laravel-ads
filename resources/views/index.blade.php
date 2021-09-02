@@ -1,69 +1,58 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.base')
 
-        <title>Laravel</title>
+@section('content')
+ <div class="content">
+     {{-- Container --}}
+    <div class="container-app">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        {{-- Top content --}}
+       <div class="top-content">
+            {{-- Logo --}}
+            <div class="logo">
+                <img id="logo" src="{{asset('img/logo.svg')}}" alt="spotify-logo" >
+            </div>
+            {{-- /Logo --}}
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
+            {{-- Navbar --}}
+            <nav class="navbar">
+                <ul>
+                    <li><a href="cookie">Cookie</a></li>
+                    <li><a href="session">Session</a></li>
+                </ul>
+            </nav>
+            {{-- /Navbar --}}
 
-            .full-height {
-                height: 100vh;
-            }
+       </div>
+        {{-- /Top content --}}
+        
+        {{-- Main message --}}
+        <div class="main-message">
+            <p id="main-promo">Passa a Premium gratis per 1 mese</p>
+            <p id="details">Al termine dell'offerta, solo 9,99&euro; al mese. Annulla in qualsiasi momento</p>
+        </div>  
+        {{-- /Main message --}}
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+        {{-- Plans button --}}
+        <div class="plans_button btn">
+            <button>
+                Vedi piani
+            </button>
+        </div>
+        {{-- /Plans button --}}
 
-            .position-ref {
-                position: relative;
-            }
+        {{-- Details terms --}}
+        <div class="details_terms">
+            <p>Si applicano Termini e condizioni. L'offerta di 1 mese gratis non è disponibile per gli utenti che hanno già provato Spotify Premium.</p>
+        </div>
+        {{-- /Details terms --}}
+    </div>
+     {{-- /Container --}}
+     <div id="app">
+        <modal show="true"/>
+     </div>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
 
-            .content {
-                text-align: center;
-            }
+ </div>
 
-            .title {
-                font-size: 84px;
-            }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-       
-    </body>
-</html>
+@endsection
