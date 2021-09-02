@@ -1929,10 +1929,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      price: "7.90"
+      price: "7.90",
+      includes: ["A Spotify Premium subscription \n (Ad free, listen offline)", "No data charges for music listening on Spotify Premium", "12-month contract applies"]
     };
   },
   props: ['show'],
@@ -37607,15 +37636,29 @@ var render = function() {
   return _c("div", { staticClass: "box_modal" }, [
     _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "price" }, [
-      _c("p", { attrs: { id: "price_in_dollar" } }, [
-        _vm._v("$" + _vm._s(_vm.price))
+    _c("div", { staticClass: "container_content_modal" }, [
+      _c("div", { staticClass: "price" }, [
+        _c("p", { attrs: { id: "price_in_dollar" } }, [
+          _vm._v("$" + _vm._s(_vm.price))
+        ]),
+        _vm._v(" "),
+        _c("p", [_vm._v("per month")])
       ]),
       _vm._v(" "),
-      _c("p", [_vm._v("per month")])
-    ]),
-    _vm._v(" "),
-    _c("h2", [_vm._v(_vm._s(_vm.show))])
+      _c("div", { staticClass: "includes_section" }, [
+        _c("p", [_vm._v("Includes")]),
+        _vm._v(" "),
+        _c(
+          "ul",
+          _vm._l(_vm.includes, function(item, index) {
+            return _c("li", { key: index }, [_vm._v(" " + _vm._s(item))])
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _vm._m(1)
+    ])
   ])
 }
 var staticRenderFns = [
@@ -37625,6 +37668,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "top_modal" }, [
       _c("img", { attrs: { src: "img/logo.svg", alt: "logo" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "subscribe_section" }, [
+      _c("button", { staticClass: "subscribe" }, [_vm._v("Subscribe")])
     ])
   }
 ]

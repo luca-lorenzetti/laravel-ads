@@ -223,16 +223,17 @@ label {
   margin-bottom: 0.5rem;
 }
 
-button {
+button, .subscribe {
   border-radius: 0;
 }
 
-button:focus:not(:focus-visible) {
+button:focus:not(:focus-visible), .subscribe:focus:not(:focus-visible) {
   outline: 0;
 }
 
 input,
 button,
+.subscribe,
 select,
 optgroup,
 textarea {
@@ -242,12 +243,12 @@ textarea {
   line-height: inherit;
 }
 
-button,
+button, .subscribe,
 input {
   overflow: visible;
 }
 
-button,
+button, .subscribe,
 select {
   text-transform: none;
 }
@@ -260,21 +261,21 @@ select {
   word-wrap: normal;
 }
 
-button,
+button, .subscribe,
 [type=button],
 [type=reset],
 [type=submit] {
   -webkit-appearance: button;
 }
 
-button:not(:disabled),
+button:not(:disabled), .subscribe:not(:disabled),
 [type=button]:not(:disabled),
 [type=reset]:not(:disabled),
 [type=submit]:not(:disabled) {
   cursor: pointer;
 }
 
-button::-moz-focus-inner,
+button::-moz-focus-inner, .subscribe::-moz-focus-inner,
 [type=button]::-moz-focus-inner,
 [type=reset]::-moz-focus-inner,
 [type=submit]::-moz-focus-inner {
@@ -5331,7 +5332,7 @@ a.badge-dark:focus, a.badge-dark.focus {
   opacity: 0.75;
 }
 
-button.close {
+button.close, .close.subscribe {
   padding: 0;
   background-color: transparent;
   border: 0;
@@ -6105,7 +6106,9 @@ a.close.disabled {
 
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
-button.bg-primary:focus {
+.bg-primary.subscribe:hover,
+button.bg-primary:focus,
+.bg-primary.subscribe:focus {
   background-color: #2176bd !important;
 }
 
@@ -6115,7 +6118,9 @@ button.bg-primary:focus {
 
 a.bg-secondary:hover, a.bg-secondary:focus,
 button.bg-secondary:hover,
-button.bg-secondary:focus {
+.bg-secondary.subscribe:hover,
+button.bg-secondary:focus,
+.bg-secondary.subscribe:focus {
   background-color: #545b62 !important;
 }
 
@@ -6125,7 +6130,9 @@ button.bg-secondary:focus {
 
 a.bg-success:hover, a.bg-success:focus,
 button.bg-success:hover,
-button.bg-success:focus {
+.bg-success.subscribe:hover,
+button.bg-success:focus,
+.bg-success.subscribe:focus {
   background-color: #2d995b !important;
 }
 
@@ -6135,7 +6142,9 @@ button.bg-success:focus {
 
 a.bg-info:hover, a.bg-info:focus,
 button.bg-info:hover,
-button.bg-info:focus {
+.bg-info.subscribe:hover,
+button.bg-info:focus,
+.bg-info.subscribe:focus {
   background-color: #3f9ae5 !important;
 }
 
@@ -6145,7 +6154,9 @@ button.bg-info:focus {
 
 a.bg-warning:hover, a.bg-warning:focus,
 button.bg-warning:hover,
-button.bg-warning:focus {
+.bg-warning.subscribe:hover,
+button.bg-warning:focus,
+.bg-warning.subscribe:focus {
   background-color: #ffe817 !important;
 }
 
@@ -6155,7 +6166,9 @@ button.bg-warning:focus {
 
 a.bg-danger:hover, a.bg-danger:focus,
 button.bg-danger:hover,
-button.bg-danger:focus {
+.bg-danger.subscribe:hover,
+button.bg-danger:focus,
+.bg-danger.subscribe:focus {
   background-color: #c51f1a !important;
 }
 
@@ -6165,7 +6178,9 @@ button.bg-danger:focus {
 
 a.bg-light:hover, a.bg-light:focus,
 button.bg-light:hover,
-button.bg-light:focus {
+.bg-light.subscribe:hover,
+button.bg-light:focus,
+.bg-light.subscribe:focus {
   background-color: #dae0e5 !important;
 }
 
@@ -6175,7 +6190,9 @@ button.bg-light:focus {
 
 a.bg-dark:hover, a.bg-dark:focus,
 button.bg-dark:hover,
-button.bg-dark:focus {
+.bg-dark.subscribe:hover,
+button.bg-dark:focus,
+.bg-dark.subscribe:focus {
   background-color: #1d2124 !important;
 }
 
@@ -10028,7 +10045,7 @@ p {
   color: #fff;
 }
 
-button {
+button, .subscribe {
   background-color: #000;
   color: #fff;
   padding: 15px 30px;
@@ -10090,6 +10107,10 @@ button {
   margin-bottom: 10px;
 }
 
+.subscribe {
+  background-color: #e3342f;
+}
+
 #app {
   width: 100%;
   height: 100%;
@@ -10117,15 +10138,30 @@ button {
 #app .box_modal .top_modal img {
   width: 200px;
 }
-#app .box_modal .price {
+#app .box_modal .container_content_modal {
+  width: 80%;
+  margin: auto;
+}
+#app .box_modal .container_content_modal .price {
   text-align: center;
 }
-#app .box_modal .price p#price_in_dollar {
+#app .box_modal .container_content_modal .price p#price_in_dollar {
   font-size: 32px;
   margin-top: 20px;
   font-weight: bold;
   margin-bottom: -5px;
 }
-#app .box_modal .price p {
+#app .box_modal .container_content_modal .price p {
   color: #000;
+}
+#app .box_modal .container_content_modal .includes_section {
+  padding: 0 50px;
+}
+#app .box_modal .container_content_modal .includes_section p {
+  color: #000;
+  font-weight: bold;
+}
+#app .box_modal .container_content_modal .subscribe_section {
+  margin-top: 20px;
+  text-align: center;
 }

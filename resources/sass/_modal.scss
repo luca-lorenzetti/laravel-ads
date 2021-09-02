@@ -1,3 +1,9 @@
+.subscribe{
+    @extend button;
+
+    background-color: $red;
+}
+
 #app{
     width: 100%;
     height: 100%;
@@ -29,20 +35,41 @@
             }
         }
 
-        .price{
-            text-align: center;
+        .container_content_modal{
+            width: 80%;
+            margin: auto;
 
-            p#price_in_dollar{
-                font-size: 32px;
-                margin-top: 20px;
-                font-weight: bold;
-                margin-bottom: -5px;
+
+            .price{
+                text-align: center;
+    
+                p#price_in_dollar{
+                    font-size: 32px;
+                    margin-top: 20px;
+                    font-weight: bold;
+                    margin-bottom: -5px;
+                }
+                p{
+                    color: $black;
+                    
+                }
             }
-            p{
-                color: $black;
-                
+    
+            .includes_section{
+                padding: 0 50px;
+
+                p{
+                    color: $black;
+                    font-weight: bold;
+                }
+            }
+
+            .subscribe_section{
+                margin-top: 20px;
+                text-align: center;
             }
         }
+ 
     }
   
 }
