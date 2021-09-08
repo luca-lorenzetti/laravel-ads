@@ -1957,17 +1957,86 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      price: "7.90",
-      includes: ["A Spotify Premium subscription \n (Ad free, listen offline)", "No data charges for music listening on Spotify Premium", "12-month contract applies"]
+      subscribe: {
+        price: "7.90",
+        alternativePrice: "9.90",
+        includes: ["A Spotify Premium subscription \n (Ad free, listen offline)", "No data charges for music listening on Spotify Premium", "12-month contract applies"]
+      },
+      showModal: false
     };
   },
-  props: ['show'],
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  }
+  props: ['session', 'type'],
+  methods: {
+    //Check Set Cookie
+    setCookie: function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+      var expires = "expires=" + d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    },
+    //Check Get Cookie
+    getCookie: function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1);
+        }
+
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+
+      return "";
+    },
+    //Check Cookies
+    checkCookie: function checkCookie() {
+      var cookie = this.getCookie("spotify_cookie");
+      if (!cookie) return true;else return false;
+    },
+    checkSession: function checkSession() {
+      if (this.session == 0) return false;else return true;
+    },
+    closeModal: function closeModal() {
+      if (this.type == "cookie") {
+        this.showModal = false;
+        this.setCookie("spotify_cookie", true, 3);
+      } else if (this.type == "session") {
+        this.showModal = false;
+      }
+    }
+  },
+  created: function created() {
+    if (this.type == "cookie") {
+      if (this.checkCookie()) {
+        this.showModal = true;
+      }
+    } else if (this.type == "session") {
+      if (!this.checkSession()) {
+        this.showModal = true;
+      } else {
+        this.showModal = false;
+      }
+    }
+  },
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -37633,33 +37702,53 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "box_modal" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "container_content_modal" }, [
-      _c("div", { staticClass: "price" }, [
-        _c("p", { attrs: { id: "price_in_dollar" } }, [
-          _vm._v("$" + _vm._s(_vm.price))
-        ]),
-        _vm._v(" "),
-        _c("p", [_vm._v("per month")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "includes_section" }, [
-        _c("p", [_vm._v("Includes")]),
-        _vm._v(" "),
-        _c(
-          "ul",
-          _vm._l(_vm.includes, function(item, index) {
-            return _c("li", { key: index }, [_vm._v(" " + _vm._s(item))])
-          }),
-          0
-        )
-      ]),
-      _vm._v(" "),
-      _vm._m(1)
-    ])
-  ])
+  return _vm.showModal == true
+    ? _c("div", { staticClass: "content_app" }, [
+        _c("div", { staticClass: "box_modal" }, [
+          _c(
+            "button",
+            { attrs: { id: "close_modal" }, on: { click: _vm.closeModal } },
+            [_vm._v("X")]
+          ),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "container_content_modal" }, [
+            _c("div", { staticClass: "price" }, [
+              _c("p", { attrs: { id: "price_in_dollar" } }, [
+                _vm._v("$" + _vm._s(_vm.subscribe.price))
+              ]),
+              _vm._v(" "),
+              _c("p", [_vm._v("per month")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "includes_section" }, [
+              _c("p", [_vm._v("Includes")]),
+              _vm._v(" "),
+              _c(
+                "ul",
+                _vm._l(_vm.subscribe.includes, function(item, index) {
+                  return _c("li", { key: index }, [_vm._v(" " + _vm._s(item))])
+                }),
+                0
+              )
+            ]),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "alternative_price" }, [
+              _c("p", [
+                _vm._v(
+                  "Or $" +
+                    _vm._s(_vm.subscribe.alternativePrice) +
+                    " per month without contract"
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
+    : _vm._e()
 }
 var staticRenderFns = [
   function() {

@@ -1,5 +1,4 @@
 @extends('layouts.base')
-
 @section('content')
  <div class="content">
      {{-- Container --}}
@@ -16,7 +15,7 @@
             {{-- Navbar --}}
             <nav class="navbar">
                 <ul>
-                    <li><a href="cookie">Cookie</a></li>
+                    <li><a href="/">Cookie</a></li>
                     <li><a href="session">Session</a></li>
                 </ul>
             </nav>
@@ -47,9 +46,12 @@
         {{-- /Details terms --}}
     </div>
      {{-- /Container --}}
-     <div id="app">
-        <modal show="true"/>
-     </div>
+
+    {{-- App VueJs --}}
+    <div id="app">
+        <modal session="{{session()->get('session')}}" type="session"/>
+    </div>
+    {{-- /App VueJs --}}
 
 
  </div>

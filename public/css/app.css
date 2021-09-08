@@ -10109,9 +10109,12 @@ button, .subscribe {
 
 .subscribe {
   background-color: #e3342f;
+  font-size: 14px;
+  text-transform: capitalize;
+  padding: 8px 40px;
 }
 
-#app {
+#app .content_app {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
@@ -10121,47 +10124,78 @@ button, .subscribe {
   position: absolute;
   top: 0;
 }
-#app .box_modal {
+#app .content_app .box_modal {
   border: 10px solid #000;
-  width: 30%;
-  height: 60%;
-  margin-bottom: 50px;
+  width: 25%;
+  height: auto;
+  min-height: 65%;
+  margin-bottom: 150px;
   background-color: #fff;
+  position: relative;
 }
-#app .box_modal .top_modal {
+#app .content_app .box_modal #close_modal {
+  width: 40px;
+  height: 40px;
+  font-weight: bold;
+  padding: 0;
+  background-color: #fff;
+  color: #4dc0b5;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  transform: translate(50%, -50%);
+  -webkit-transform: translate(50%, -50%);
+  -moz-transform: translate(50%, -50%);
+  -ms-transform: translate(50%, -50%);
+  -o-transform: translate(50%, -50%);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+#app .content_app .box_modal .top_modal {
   background-color: #38c172;
-  height: 20%;
+  padding: 30px 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-#app .box_modal .top_modal img {
+#app .content_app .box_modal .top_modal img {
   width: 200px;
 }
-#app .box_modal .container_content_modal {
-  width: 80%;
-  margin: auto;
+#app .content_app .box_modal .container_content_modal {
+  width: 85%;
+  margin: 0 auto;
 }
-#app .box_modal .container_content_modal .price {
+#app .content_app .box_modal .container_content_modal .price {
   text-align: center;
 }
-#app .box_modal .container_content_modal .price p#price_in_dollar {
+#app .content_app .box_modal .container_content_modal .price p#price_in_dollar {
   font-size: 32px;
   margin-top: 20px;
   font-weight: bold;
   margin-bottom: -5px;
 }
-#app .box_modal .container_content_modal .price p {
+#app .content_app .box_modal .container_content_modal .price p {
   color: #000;
+  font-weight: 100;
+  font-size: 12px;
 }
-#app .box_modal .container_content_modal .includes_section {
-  padding: 0 50px;
-}
-#app .box_modal .container_content_modal .includes_section p {
+#app .content_app .box_modal .container_content_modal .includes_section p {
   color: #000;
   font-weight: bold;
 }
-#app .box_modal .container_content_modal .subscribe_section {
-  margin-top: 20px;
+#app .content_app .box_modal .container_content_modal .includes_section ul > li {
+  margin-left: 15px;
+}
+#app .content_app .box_modal .container_content_modal .subscribe_section {
+  margin-top: 40px;
   text-align: center;
+}
+#app .content_app .box_modal .container_content_modal .alternative_price {
+  text-align: center;
+}
+#app .content_app .box_modal .container_content_modal .alternative_price p {
+  margin-top: 15px;
+  color: #4dc0b5;
 }

@@ -6,6 +6,8 @@
 
         <title>Laravel</title>
 
+        {{-- Manifest --}}
+        <link rel="manifest" href="json/manifest.json" crossorigin="use-credentials">
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +19,7 @@
     <body>
         @yield('content')
 
+@dump(session()->get('session'))
         {{-- Vuejs --}}
         <script src="{{ mix('/js/app.js') }}"></script>
     </body>
