@@ -3,10 +3,10 @@
 
         <!-- Box Modal -->
          <div class="box_modal">
-    
-            
+
+
                 <button id="close_modal" v-on:click="closeModal">X</button>
-       
+
             <!-- Top Modal -->
             <div class="top_modal">
                 <img src="img/logo.svg" alt="logo">
@@ -49,12 +49,11 @@
         <!-- /Box Modal -->
 
     </div>
-   
+
 
 </template>
 
 <style lang="scss">
-
 
 </style>
 <script>
@@ -67,7 +66,7 @@
                     alternativePrice: "9.90",
                     includes: [`A Spotify Premium subscription \n (Ad free, listen offline)`, `No data charges for music listening on Spotify Premium`, `12-month contract applies`]
                 },
-            showModal: false   
+            showModal: false
             }
         },
         props:['session', 'type'],
@@ -89,11 +88,12 @@
 
                 for(let i = 0; i < ca.length; i++) {
                     let c = ca[i];
+
                     while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
+                        c = c.substring(1);
                     }
                     if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
+                        return c.substring(name.length, c.length);
                     }
                 }
                 return "";
@@ -101,20 +101,14 @@
 
             //Check Cookies
             checkCookie:function () {
-                let cookie = this.getCookie("spotify_cookie");
-                    if (!cookie) 
-                        return true
-                    
-                   else
-                        return false;
+
+                return !this.getCookie("spotify_cookie") ? true : false;
             },
+            // Check if session has started
             checkSession:function () {
-               
-                    if (this.session == 0) 
-                        return false
-                    
-                   else
-                        return true;
+
+                return  this.session == 0  ? false : true;
+
             },
 
             closeModal:function(){
@@ -125,28 +119,20 @@
                 else if(this.type == "session"){
                     this.showModal = false;
                 }
-           
             }
-                    
-
         },
+
         created(){
             if( this.type == "cookie"){
-                
+
                 if(this.checkCookie()){
 
                     this.showModal = true;
                 }
             }
-            else if(this.type == "session"){
-                if(!this.checkSession()){
-                    this.showModal = true;
-                }
-                else{
-                    this.showModal = false;
-                }
-    
-            }
+            else if(this.type == "session")
+
+                !this.checkSession() ? this.showModal = true : this.showModal = false;
 
         },
         mounted() {

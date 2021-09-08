@@ -19,7 +19,6 @@
     <body>
         @yield('content')
 
-@dump(session()->get('session'))
         {{-- Vuejs --}}
         <script src="{{ mix('/js/app.js') }}"></script>
     </body>

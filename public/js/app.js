@@ -1966,7 +1966,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2008,11 +2007,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     //Check Cookies
     checkCookie: function checkCookie() {
-      var cookie = this.getCookie("spotify_cookie");
-      if (!cookie) return true;else return false;
+      return !this.getCookie("spotify_cookie") ? true : false;
     },
+    // Check if session has started
     checkSession: function checkSession() {
-      if (this.session == 0) return false;else return true;
+      return this.session == 0 ? false : true;
     },
     closeModal: function closeModal() {
       if (this.type == "cookie") {
@@ -2028,13 +2027,7 @@ __webpack_require__.r(__webpack_exports__);
       if (this.checkCookie()) {
         this.showModal = true;
       }
-    } else if (this.type == "session") {
-      if (!this.checkSession()) {
-        this.showModal = true;
-      } else {
-        this.showModal = false;
-      }
-    }
+    } else if (this.type == "session") !this.checkSession() ? this.showModal = true : this.showModal = false;
   },
   mounted: function mounted() {}
 });
